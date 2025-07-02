@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import google.generativeai as genai
 
 # ✅ Substitua pelo seu próprio API Key do Gemini
-API_KEY = "AIzaSyDVeJh99yfJiXPZ_D4ni6w3LXrP--78mXs"
+API_KEY = "AIzaSyCUvso0yUA0icISQraTK47MU7YBsTOGjHQ"
 genai.configure(api_key=API_KEY)
 
 # Cria o modelo Gemini
@@ -19,7 +19,7 @@ def extrair_conteudo_do_site(url):
         textos = []
 
         # Extrair textos de várias tags relevantes
-        for tag in soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'span', 'li', 'div']):
+        for tag in soup.find_all(['p', 'h1', 'li']):
             texto = tag.get_text(strip=True)
             if texto and len(texto) > 2:
                 textos.append(texto)
